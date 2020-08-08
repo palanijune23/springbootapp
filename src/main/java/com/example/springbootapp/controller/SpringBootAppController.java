@@ -11,6 +11,7 @@ public class SpringBootAppController {
 		@GetMapping({"/", "/home"})
 	    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="Rohit") String name) {
 	        model.addAttribute("name", name);
+	        System.out.println("SpringBootAppController completed !..");
 	        return "home";
 	    }
 
