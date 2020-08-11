@@ -3,7 +3,8 @@ node{
      git 'https://github.com/palanijune23/springbootapp'
      }
      stage('Compile-Package'){
+          //Get Maven Build Path
      def mvnHome = tool name: 'maven home', type: 'maven'
-     sh 'mvn package'
+          sh "${mvnHome}/bin/mvn package"
      }
 }
