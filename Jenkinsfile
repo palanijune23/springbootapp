@@ -1,10 +1,19 @@
-node{
-     stage('SCM Checkout'){
-     git 'https://github.com/palanijune23/springbootapp'
-     }
-     stage('Compile-Package'){
-          //Get Maven Build Path
-     def mvnHome = tool name: 'maven home', type: 'maven'
-          sh "${mvnHome}/bin/mvn package"
-     }
+pipeline
+{
+	agent any
+	environment{
+	PATH = "D:/softwares/apache-maven-3.6.3/bin:$PATH"
+	}
+	stages{
+			stage("clone code"){
+			steps{
+				git credentialsId: 'git_credentials', url: 'https://github.com/palanijune23/springbootapp.git'
+				 }
+			}
+			stage("build code"){
+		      steps{
+		      sh "mvn clean install"
+		      }
+		     }
+		   }
 }
