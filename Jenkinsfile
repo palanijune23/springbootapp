@@ -10,10 +10,6 @@ pipeline
 				git credentialsId: 'git_credentials', url: 'https://github.com/palanijune23/springbootapp.git'
 				 }
 			}
-			stage("build code"){
-		      steps{
-		      sh "mvn clean install"
-		      }
-		     }
+			
 		   }
 }
